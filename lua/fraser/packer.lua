@@ -38,4 +38,8 @@ return require('packer').startup(function(use)
     {'L3MON4D3/LuaSnip'},     -- Required
   }
   }
+  -- visual theme
+  use { "bluz71/vim-nightfly-colors", as = "nightfly" }
+  -- formatter
+  use {"lukas-reineke/lsp-format.nvim"}
   end)

@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/fraser/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["lsp-format.nvim"] = {
+    loaded = true,
+    path = "/home/fraser/.local/share/nvim/site/pack/packer/start/lsp-format.nvim",
+    url = "https://github.com/lukas-reineke/lsp-format.nvim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/home/fraser/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
@@ -98,6 +103,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/fraser/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  nightfly = {
+    loaded = true,
+    path = "/home/fraser/.local/share/nvim/site/pack/packer/start/nightfly",
+    url = "https://github.com/bluz71/vim-nightfly-colors"
   },
   ["nvim-cmp"] = {
     loaded = true,
