@@ -14,3 +14,6 @@ I know I'll forget keybinds so I'll put them here
 
 ## Lazy Loader
 `:Lazy` in the terminal accesses the GUI for lazy loader 
+
+## NerdTree
+* `<leader>-` open nerdtree file explorer
