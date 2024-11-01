@@ -20,5 +20,5 @@ I know I'll forget keybinds so I'll put them here
 
 ## Tree-sitter
 * `TSInstall <language>` installs what every language syntax
-* 'TSInstallInfo` shows a list of laguages syntax thing you have installed
+* `TSInstallInfo` shows a list of laguages syntax thing you have installed
 
