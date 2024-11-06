@@ -1,6 +1,5 @@
-print("hello thog")
 require("thog.lazy")
+require("thog.mason")
+require("thog.lsp")
 require("thog.mappings")
 require("thog.options")
-require("thog.treesitter")
-
