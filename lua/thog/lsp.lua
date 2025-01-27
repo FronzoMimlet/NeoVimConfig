@@ -27,6 +27,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
     vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
     vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+		vim.keymap.set('n', '<leader>cd','<cmd>lua vim.diagnostic.open_float()<cr>', opts)
   end,
 })
 
@@ -35,12 +36,29 @@ vim.api.nvim_create_autocmd('LspAttach', {
 require('lspconfig').gleam.setup({})
 require('lspconfig').rust_analyzer.setup({})
 
+
+require('lspconfig')['hls'].setup{
+    filetypes = { 'haskell', 'lhaskell', 'cabal' },
+}
 require('mason-lspconfig').setup({
+  ensure_installed = {'hls'}, -- Automatically ensure HLS is installed
   handlers = {
     function(server_name)
       require('lspconfig')[server_name].setup({})
     end,
-  }
+    -- Add explicit handler for HLS
+    ['hls'] = function()
+      require('lspconfig').hls.setup{
+        capabilities = require('cmp_nvim_lsp').default_capabilities(),
+        settings = {
+          haskell = {
+            formattingProvider = "ormolu",
+            logLevel = "debug",
+          },
+        },
+      }
+    end,
+  },
 })
 
 local cmp = require('cmp')
@@ -58,16 +76,4 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({}),
 })
 
--- Disables semantic 
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(event)
-    local id = vim.tbl_get(event, 'data', 'client_id')
-    local client = id and vim.lsp.get_client_by_id(id)
-    if client == nil then
-      return
-    end
 
-    -- Disable semantic highlights
-    client.server_capabilities.semanticTokensProvider = nil
-  end
-})

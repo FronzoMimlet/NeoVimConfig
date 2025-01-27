@@ -26,7 +26,7 @@ I know I'll forget keybinds so I'll put them here
 * `<C-y>` confirm selection
 * `<C-e>` cancel completion
 * `<C-n>` next completion menu
-* `<C-p>' prev completion menu 
+* `<C-p>` prev completion menu 
 
 ## LSP Config
 * `K` Displays hover information about the symbol under the cursor in a floating window* `gd`goto definition
@@ -37,4 +37,5 @@ I know I'll forget keybinds so I'll put them here
 * `gs` displays signature
 * `<F2>` renames all references
 * `<F4>` Selects a code action available
+* `<leader>cd` Opens float for diagnostic window
 
