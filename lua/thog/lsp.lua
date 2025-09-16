@@ -35,11 +35,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- servers you have installed in your system
 require('lspconfig').gleam.setup({})
 require('lspconfig').rust_analyzer.setup({})
+require('lspconfig').pyright.setup({})
+require('lspconfig').hls.setup({})
+require('lspconfig').clangd.setup({})
 
-
-require('lspconfig')['hls'].setup{
-    filetypes = { 'haskell', 'lhaskell', 'cabal' },
-}
 require('mason-lspconfig').setup({
   ensure_installed = {'hls'}, -- Automatically ensure HLS is installed
   handlers = {
