@@ -39,11 +39,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- require('lspconfig').hls.setup({})
 -- require('lspconfig').clangd.setup({})
 
+local lsp_config = require('lspconfig')
+require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'hls','lua_ls','rust_analyzer','pyright','clangd'},
+  ensure_installed = {'clangd','hls','lua_ls','rust_analyzer','pyright'},
   handlers = {
     function(server_name)
-      require('lspconfig')[server_name].setup({})
+      lsp_config[server_name].setup({})
     end,
   },
 })
