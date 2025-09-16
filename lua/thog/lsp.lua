@@ -33,29 +33,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 -- These are just examples. Replace them with the language
 -- servers you have installed in your system
-require('lspconfig').gleam.setup({})
-require('lspconfig').rust_analyzer.setup({})
-require('lspconfig').pyright.setup({})
-require('lspconfig').hls.setup({})
-require('lspconfig').clangd.setup({})
+-- require('lspconfig').gleam.setup({})
+-- require('lspconfig').rust_analyzer.setup({})
+-- require('lspconfig').pyright.setup({})
+-- require('lspconfig').hls.setup({})
+-- require('lspconfig').clangd.setup({})
 
 require('mason-lspconfig').setup({
-  ensure_installed = {'hls'}, -- Automatically ensure HLS is installed
+  ensure_installed = {'hls','lua_ls','rust_analyzer','pyright','clangd'},
   handlers = {
     function(server_name)
       require('lspconfig')[server_name].setup({})
-    end,
-    -- Add explicit handler for HLS
-    ['hls'] = function()
-      require('lspconfig').hls.setup{
-        capabilities = require('cmp_nvim_lsp').default_capabilities(),
-        settings = {
-          haskell = {
-            formattingProvider = "ormolu",
-            logLevel = "debug",
-          },
-        },
-      }
     end,
   },
 })
